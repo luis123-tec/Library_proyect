@@ -1,5 +1,5 @@
 # oop-2024
-Proyect repository for TC1030
+Proyect repository
 Context
 Imagine a small bookstore that is growing and needs an efficient way to manage its book inventory. Currently, they keep track of everything manually, which results in frequent errors, wasted time, and difficulties in knowing which books are in stock or need restocking. 
 
