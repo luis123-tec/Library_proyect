@@ -8,7 +8,7 @@ My proposition is a program that allows the bookstore to:
 Register new books: Include title, author, genre, stock quantity, and price.
 Update inventory: Modify the stock quantity when books are sold or new copies are added.
 Search for books: By title, author, or genre.
-Also it will not be limited by books, but other different media pieces
+Also it will not be limited by books, but other different media pieces can be added.
 
 This project is significant because it addresses a real problem: efficient inventory management. A good inventory system is important so customers can have all the necesary information on the books they want.
 
