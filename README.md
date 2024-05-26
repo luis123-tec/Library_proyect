@@ -13,3 +13,8 @@ Also it will not be limited by books, but other different media pieces can be ad
 This project is significant because it addresses a real problem: efficient inventory management. A good inventory system is important so customers can have all the necesary information on the books they want.
 
 Overall i think it can be a simple proyect, but i can develop it further so it adapts to all the topics required
+
+
+
+//////
+1st delivery, a method was implemented but, i tried to do the other one but couldnt, so ill check that later, inheritance was used and also i think the override i did is correct and polymorphism, i also tried abstract classes, but i got a problem so i dont know (?) and since i wasnt sure, the syntax in the uml isnt correctly representing abstract classes
