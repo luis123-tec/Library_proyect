@@ -14,7 +14,4 @@ This project is significant because it addresses a real problem: efficient inven
 
 Overall i think it can be a simple proyect, but i can develop it further so it adapts to all the topics required
 
-
-
-//////
-1st delivery, a method was implemented but, i tried to do the other one but couldnt, so ill check that later, inheritance was used and also i think the override i did is correct and polymorphism, i also tried abstract classes, but i got a problem so i dont know (?) and since i wasnt sure, the syntax in the uml isnt correctly representing abstract classes
+Solution:
