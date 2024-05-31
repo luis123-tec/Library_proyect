@@ -12,6 +12,4 @@ Also it will not be limited by books, but other different media pieces can be ad
 
 This project is significant because it addresses a real problem: efficient inventory management. A good inventory system is important so customers can have all the necesary information on the books they want.
 
-Overall i think it can be a simple proyect, but i can develop it further so it adapts to all the topics required
-
 Solution:
