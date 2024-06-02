@@ -17,6 +17,8 @@ class Persona {
     int getEdad();
     void displayData();
     virtual std::string getTipoPersona() = 0; // Método virtual 
+    virtual void visualizarInventario() = 0; // Método virtual para visualizar inventario
+    virtual void modificarInventario() = 0; // Método virtual para modificar inventario
 };
 
 #endif
