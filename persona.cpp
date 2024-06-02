@@ -18,5 +18,5 @@ int Persona::getEdad() {
   return edad;
 }
 void Persona::displayData() {
-  std::cout << "Hola";
+  std::cout << "";
 }
