@@ -1,7 +1,6 @@
-
 #include "producto.h"
 
-Producto::Producto() : title(""), price(0.0), stock(0) {}
+Producto::Producto() : title("El principito"), price(16.50), stock(2) {}
 
 Producto::Producto(std::string tit, double prc, int stk) : title(tit), price(prc), stock(stk) {}
 
@@ -32,4 +31,3 @@ void Producto::setStock(int stk) {
 void Producto::displayInfo() {
   std::cout << "Titulo: " << title << ", Precio: " << price << ", Stock: " << stock << std::endl;
 }
-//todavia no pongo este metodo en el main, porque queria probar los otros pero pronto lo pondre
