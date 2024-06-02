@@ -1,3 +1,4 @@
+
 #include "libro.h"
 
 Libro::Libro() {
@@ -24,3 +25,16 @@ void Libro::setAutor(std::string author) {
 std::string Libro::getTipoProducto() { //Metodo para regresar el tipo de producto
     return "Libro";
 }
+
+void Libro::displayInfo() { 
+  Producto::displayInfo();
+  std::cout << "  Tipo: Libro" << std::endl; 
+}
+void Libro::displayInfo(int year, std::string author) { 
+  
+  Producto::displayInfo();
+  std::cout << "  Tipo: Libro" << std::endl;
+  std::cout << "  Autor: " << author << std::endl; 
+  std::cout << "  Año: " << year << std::endl; 
+}
+
