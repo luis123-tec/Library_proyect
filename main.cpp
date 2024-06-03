@@ -54,17 +54,15 @@ int main() {
                             } else {
                                 std::cout << "ID de empleado no valido.\n";
                             }
-                            break; // Add break to prevent falling through to case 2
+                            break; 
                         }
-                        case 2: { // Use curly braces for scope
+                        case 2: { 
                             std::cout << "\nLogin de usuario:\n";
-                            // ... (Add logic for user login here if needed)
-                            // (For example, prompt for a user ID or password)
-                            Usuario* miUsuario = new Usuario(123);
-                            std::string tipoPersona = miUsuario->getTipoPersona(); // Get type
+                            Usuario* miUsuario = new Usuario(123); //usuario temp
+                            std::string tipoPersona = miUsuario->getTipoPersona(); 
                             if (tipoPersona == "Comprador") {
                                 std::cout << "\nBienvenido user!\n";
-                                miUsuario->visualizarInventario(); // Only viewing allowed
+                                miUsuario->visualizarInventario();
                             } else {
                                 std::cout << "User invalido.\n";
                             }
