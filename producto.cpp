@@ -1,6 +1,6 @@
 #include "producto.h"
 
-Producto::Producto() : title("El principito"), price(16.50), stock(2) {}
+Producto::Producto() {}
 
 Producto::Producto(std::string tit, double prc, int stk) : title(tit), price(prc), stock(stk) {}
 
@@ -28,6 +28,6 @@ void Producto::setStock(int stk) {
   stock = stk;
 }
 
-void Producto::displayInfo() {
+void Producto::displayInfo() const {
   std::cout << "Titulo: " << title << ", Precio: " << price << ", Stock: " << stock << std::endl;
 }
