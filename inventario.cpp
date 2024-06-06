@@ -2,7 +2,7 @@
 #include "libro.h"
 #include "manga.h"
 #include <iostream>
-#include <algorithm>
+
 
 Inventario::Inventario() {}
 
