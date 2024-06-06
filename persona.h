@@ -1,24 +1,26 @@
+
 #ifndef PERSONA_H
 #define PERSONA_H
 
 #include <string>
+#include <iostream>
 
 class Persona {
-  protected:
+protected:
     std::string nombre;
     int edad;
-    
-  public:
-    Persona();
-    Persona(std::string, int);
-    void setNombre(std::string nom);
-    void setEdad(int age);
-    std::string getNombre();
-    int getEdad();
-    void displayData();
-    virtual std::string getTipoPersona() = 0; // Método virtual 
-    virtual void visualizarInventario() = 0; // Método virtual para visualizar inventario
-    virtual void modificarInventario() = 0; // Método virtual para modificar inventario
+
+public:
+    Persona(std::string nom = "", int age = 0);
+
+    virtual ~Persona() = default;
+
+    virtual std::string getTipoPersona() = 0;
+    virtual void visualizarInventario() = 0;
+    virtual void modificarInventario() = 0;
+
+    void mostrarDatos() const;
+
 };
 
 #endif
