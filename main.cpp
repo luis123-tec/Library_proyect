@@ -1,79 +1,93 @@
-//Luis Fernando
-#include <iostream>
+#include "empleado.h"
+#include "usuario.h"
 #include "libro.h"
 #include "manga.h"
-#include "persona.h"
-#include "empleado.h"
 #include "inventario.h"
-#include "usuario.h"
+#include <iostream>
+#include <vector>
+
+void mostrarMenu(Persona* persona) {
+    
+    std::cout << "\nMenu, Bienvenido " << persona->getTipoPersona() << ", ";
+    persona->mostrarDatos();
+    if (persona->getTipoPersona() == "Trabajador") {
+        Empleado* emp = dynamic_cast<Empleado*>(persona);
+            if (emp != nullptr) {
+                std::cout << "Número de empleado: " << emp->getNumEmpleado() << std::endl;
+            }
+        } else {
+            Usuario* usr = dynamic_cast<Usuario*>(persona);
+            if (usr != nullptr) {
+                std::cout << "Identificación: " << usr->getIdentificacion() << std::endl;
+            }
+        }
+
+    std::cout << "\nMenu:\n";
+    std::cout << "1. Ver inventario\n";
+    std::cout << "2. Modificar inventario\n";
+    std::cout << "3. Ver datos personales\n";
+    std::cout << "4. Salir\n";
+    std::cout << "Seleccione una opción: ";
+}
+
+void gestionarInventario(Persona* persona) {
+    int opcion;
+    do {
+        mostrarMenu(persona);
+        std::cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            persona->visualizarInventario();
+            break;
+        case 2:
+            if (persona->getTipoPersona() == "Trabajador") {
+                persona->modificarInventario();
+            } else {
+                std::cout << "No tiene permisos para modificar el inventario.\n";
+            }
+            break;
+        case 3:
+            persona->mostrarDatos();
+            break;
+        case 4:
+            std::cout << "Saliendo...\n";
+            break;
+        default:
+            std::cout << "Opción no válida. Intente nuevamente.\n";
+            break;
+        }
+    } while (opcion != 4);
+}
 
 int main() {
-    Libro libro(1998, "Robert Greene");
-    Manga manga(24, 10);
+    
+     int tipoPersonaSeleccion;
 
-    std::cout << "Tipo de producto : " << libro.getTipoProducto() << std::endl;
-    std::cout << "Tipo de producto : " << manga.getTipoProducto() << std::endl;
-
-    Inventario* miInventario = new Inventario(); 
-
-    Empleado* miEmpleado = new Empleado(miInventario);
-
-    // Añadir Libro
-    Libro* libro1 = new Libro(1980, "Miguel de Cervantes"); 
-    miInventario->agregarProducto(libro1);
-    // Añadir Manga
-    Manga* manga1 = new Manga(24, 10); 
-    miInventario->agregarProducto(manga1);
-
-
-    while (true) {
-        std::cout << "\nMenu de libreria:\n";
-        std::cout << "1. Login como empleado\n";
-        std::cout << "2. Login como User\n";
-        std::cout << "3. Salir\n";
-        std::cout << "Elige una opción: ";
-        int choice;
-        std::cin >> choice;
-
-        switch (choice) {
-            case 1: { 
-                            std::cout << "\nLogin de empleado:\n";
-                            std::string tipoPersona = miEmpleado->getTipoPersona(); // Obtener el tipo de persona
-                            if (tipoPersona == "Trabajador") {
-                                std::cout << "\nBienvenido, emplead@!\n";
-                                miEmpleado->modificarInventario(); 
-                                while (true) {
-                                    miEmpleado->visualizarInventario(); // Acceso full
-                                    std::cout << "Continuar? (s/n): ";
-                                    char continueChoice;
-                                    std::cin >> continueChoice;
-                                    if (continueChoice == 'n') {
-                                        break;
-                                    }
-                                }
-                            } else {
-                                std::cout << "ID de empleado no valido.\n";
-                            }
-                            break; 
-                        }
-                        case 2: { 
-                            std::cout << "\nLogin de usuario:\n";
-                            Usuario* miUsuario = new Usuario(123); //usuario temp
-                            std::string tipoPersona = miUsuario->getTipoPersona(); 
-                            if (tipoPersona == "Comprador") {
-                                std::cout << "\nBienvenido user!\n";
-                                miUsuario->visualizarInventario();
-                            } else {
-                                std::cout << "User invalido.\n";
-                            }
-                            break;
-                        }
-                        case 3:
-                            std::cout << "Saliendo...\n";
-                            return 0; // Exit the program
-                        default:
-                            std::cout << "Opción invalida.\n";
-                    }
-                }
-                return 0;
+    Inventario inventario;
+    // Usar overload de metodos para en este caso agregar productos, el programa detecta cual es un manga y cual es un libro dependiendo de los parametros
+    inventario.agregarProducto("Aprendiendo c++", 49.99, 15, 2015, "John Mayer");  // Libro
+    inventario.agregarProducto("JJK", 14.99, 3, 27, 10);  // Manga
+    inventario.agregarProducto("C--", 39.99, 10, 2005, "John Meyers");  // Otro Libro
+    inventario.agregarProducto("Oyasumi punpun", 19.99, 11, 13, 10);  // Otro Manga
+    
+    std::cout << "Seleccione el tipo de persona:\n";
+    std::cout << "1. Empleado\n";
+    std::cout << "2. Usuario\n";
+    std::cout << "Seleccione una opción: ";
+    std::cin >> tipoPersonaSeleccion;
+    Persona* persona = nullptr;
+    if (tipoPersonaSeleccion == 1) {
+        persona = new Empleado("Juanita", 30, 1, &inventario);
+        static_cast<Empleado*>(persona)->setNumEmpleado(1707);
+    } else if (tipoPersonaSeleccion == 2) {
+        persona = new Usuario("Juanito", 25, 1, &inventario);
+        static_cast<Usuario*>(persona)->setIdentificacion(170455);
+    } else {
+        std::cout << "Selección inválida." << std::endl;
+        return 1; 
+    }
+    // Comienza la gestión del inventario
+    gestionarInventario(persona);
+    return 0;
 }
