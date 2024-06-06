@@ -11,15 +11,14 @@ class Manga : public Producto {
     int calificacion;
   
   public:
-    Manga();
-    Manga(int, int);
+    Manga(std::string tit, double prc, int stk, int vols, int cal);
     int getVolumenes();
     int getCalificacion();
     void setVolumenes(int vols);
     void setCalificacion(int cal);
     std::string getTipoProducto() override;
-    void displayInfo(); 
-    void displayInfo(int vols, int cal); // Sobrecarga
+    void displayInfo() const override; 
 };
+
 
 #endif
