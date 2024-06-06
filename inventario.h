@@ -1,18 +1,20 @@
-
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
-#include <vector>
 #include "producto.h"
+#include <vector>
 
 class Inventario {
 private:
-    std::vector<Producto*> productos; 
+    std::vector<Producto*> productos;
+
 public:
-    std::vector<Producto*> getProductos() {
-        return productos;
-    }
+    Inventario();
     void agregarProducto(Producto* producto);
+    //Overloading de metodos
+    void agregarProducto(std::string tit, double pre, int st, int anio, std::string aut); // Libro
+    void agregarProducto(std::string tit, double pre, int st, int vol, int calif); // Manga
+
     void mostrarInventario();
     void modificarInventario();
 };
