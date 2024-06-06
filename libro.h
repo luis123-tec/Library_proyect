@@ -1,4 +1,3 @@
-
 #ifndef LIBRO_H
 #define LIBRO_H
 
@@ -11,15 +10,13 @@ class Libro : public Producto {
     int anio;
     std::string autor;
   public:
-    Libro();
-    Libro(int, std::string);
+    Libro(std::string tit, double prc, int stk, int year, std::string auth);
     int getAnio();
     std::string getAutor();
     void setAnio(int year);
     void setAutor(std::string author);
     std::string getTipoProducto() override; //override que se utiliza para darle individualidad a libro y manga
-    void displayInfo(); //Hacer el metodo display, y luego hacer otro metodo para agregarle mas cosas
-    void displayInfo(int year, std::string author);
+    void displayInfo() const override; //Polimorfismo porque no es una clase virtual pura
 };
 
 
