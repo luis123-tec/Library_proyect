@@ -1,30 +1,33 @@
 #include "empleado.h"
-#include "inventario.h"
 #include <iostream>
 
-
-Empleado::Empleado() {}
-
-Empleado::Empleado(int num) : num_empleado(num) {}
-
-Empleado::Empleado(Inventario* inv) : inventario(inv) {}
+Empleado::Empleado(std::string nom, int age, int num, Inventario* inv)
+    : Persona(nom, age), num_empleado(num), inventario(inv) {}
 
 int Empleado::getNumEmpleado() {
-  return num_empleado;
+    return num_empleado;
 }
 
 void Empleado::setNumEmpleado(int num) {
-  num_empleado = num;
+    num_empleado = num;
 }
+
 std::string Empleado::getTipoPersona() {
-  return "Trabajador";
+    return "Trabajador";
 }
+
 void Empleado::visualizarInventario() {
-  
-  std::cout << "Inventario del empleado:" << std::endl;
-  inventario->mostrarInventario();
+    std::cout << "Inventario del empleado:" << std::endl;
+    inventario->mostrarInventario();
 }
+
 void Empleado::modificarInventario() {
-  
-  inventario->modificarInventario();
+    std::cout << "Empleado puede modificar el inventario." << std::endl;
+    inventario->modificarInventario();
+}
+
+void Empleado::mostrarDatos() const {
+    Persona::mostrarDatos();
+    std::cout << "Número de empleado: " << num_empleado << std::endl;
+    
 }
