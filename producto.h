@@ -13,15 +13,15 @@ class Producto {
 
   public:
     Producto();
-    Producto(std::string, double, int);
+    Producto(std::string tit, double prc, int stk);
     std::string getTitle();
     double getPrice();
     int getStock();
     void setTitle(std::string tit);
     void setPrice(double prc);
     void setStock(int stock);
-    void displayInfo();
-    virtual std::string getTipoProducto() = 0; // Método virtual que posteriormente se va a cambiar con override
+    virtual void displayInfo() const; //Polimorfismo, sin clases virtuales puras
+    virtual std::string getTipoProducto() = 0; // Método virtual que posteriormente se va a cambiar con override CLASES ABSTRACTAS
 };
-    
+
  #endif   
