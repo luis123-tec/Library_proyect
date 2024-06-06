@@ -1,10 +1,6 @@
 #include "manga.h"
 
-Manga::Manga() {
-  
-}
-
-Manga::Manga(int vols, int cal) : volumenes(vols), calificacion(cal) {}
+Manga::Manga(std::string tit, double prc, int stk, int vols, int cal) : Producto(tit, prc, stk),volumenes(vols),calificacion(cal) {}
 
 int Manga::getVolumenes() {
   return volumenes;
@@ -24,16 +20,9 @@ void Manga::setCalificacion(int cal) {
 std::string Manga::getTipoProducto() {
   return "Manga";
 }
-void Manga::displayInfo() {
-  
+void Manga::displayInfo() const {
   Producto::displayInfo();
-  std::cout << "  Tipo: Manga" << std::endl; 
-}
-void Manga::displayInfo(int vols, int cal) {
-  
-  Producto::displayInfo();
-  std::cout << "  Tipo: Manga" << std::endl;
-  std::cout << "  Volumenes: " << vols << std::endl;
-  std::cout << "  Calificación: " << cal << std::endl;
+  std::cout << ", Volúmenes: "  << volumenes 
+  << ", Calificación: " << calificacion << std::endl;
 }
 
