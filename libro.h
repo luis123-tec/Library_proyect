@@ -15,8 +15,8 @@ class Libro : public Producto {
     std::string getAutor();
     void setAnio(int year);
     void setAutor(std::string author);
-    std::string getTipoProducto() override; //override que se utiliza para darle individualidad a libro y manga
-    void displayInfo() const override; //Polimorfismo porque no es una clase virtual pura
+    std::string getTipoProducto() override; 
+    void displayInfo() const override; //sobreescritura
 };
 
 
