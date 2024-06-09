@@ -1,24 +1,24 @@
-#ifndef USUARIO_H
-#define USUARIO_H
+#include "usuario.h"
+#include <iostream>
 
-#include "persona.h"
-#include "inventario.h"
+Usuario::Usuario(std::string nom, int age, int id, Inventario* inv)
+    : Persona(nom, age), identificacion(id), inventario(inv) {}
 
-class Usuario : public Persona {
-private:
-    int identificacion;
-    Inventario* inventario;
+int Usuario::getIdentificacion() {
+    return identificacion;
+}
 
-public:
-    Usuario(std::string nom, int age, int id, Inventario* inv);
+void Usuario::setIdentificacion(int id) {
+    identificacion = id;
+}
 
-    int getIdentificacion();
-    void setIdentificacion(int id);
-    std::string getTipoPersona() override;
+std::string Usuario::getTipoPersona() {
+    return "Comprador";
+}
 
-    void visualizarInventario() override;
-    void modificarInventario() override;
-    void mostrarDatos() const;
-};
+void Usuario::visualizarInventario() {
+    std::cout << "Cliente puede ver inventario." << std::endl;
+    inventario->mostrarInventario();
+}
 
-#endif
+void Usuario::modificarInventario() {}
