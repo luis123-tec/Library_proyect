@@ -11,7 +11,7 @@ private:
 public:
     Inventario();
     void agregarProducto(Producto* producto);
-    //Overloading de metodos
+    //Sobrecarga de metodos
     void agregarProducto(std::string tit, double pre, int st, int anio, std::string aut); // Libro
     void agregarProducto(std::string tit, double pre, int st, int vol, int calif); // Manga
 
