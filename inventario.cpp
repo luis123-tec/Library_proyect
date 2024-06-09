@@ -101,5 +101,3 @@ void Inventario::modificarInventario() {
 
     }
 }
-
-
