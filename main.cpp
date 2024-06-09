@@ -65,7 +65,7 @@ int main() {
      int tipoPersonaSeleccion;
 
     Inventario inventario;
-    // Usar overload de metodos para en este caso agregar productos, el programa detecta cual es un manga y cual es un libro dependiendo de los parametros
+    // Usar sobrecarga de metodos para en este caso agregar productos, el programa detecta cual es un manga y cual es un libro dependiendo de los parametros
     inventario.agregarProducto("Aprendiendo c++", 49.99, 15, 2015, "John Mayer");  // Libro
     inventario.agregarProducto("JJK", 14.99, 3, 27, 10);  // Manga
     inventario.agregarProducto("C--", 39.99, 10, 2005, "John Meyers");  // Otro Libro
@@ -76,6 +76,7 @@ int main() {
     std::cout << "2. Usuario\n";
     std::cout << "Seleccione una opción: ";
     std::cin >> tipoPersonaSeleccion;
+    //Polimorfismo
     Persona* persona = nullptr;
     if (tipoPersonaSeleccion == 1) {
         persona = new Empleado("Juanita", 30, 1, &inventario);
@@ -91,3 +92,4 @@ int main() {
     gestionarInventario(persona);
     return 0;
 }
+ 
