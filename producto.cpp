@@ -1,3 +1,4 @@
+
 #include "producto.h"
 
 Producto::Producto() {}
@@ -27,7 +28,13 @@ void Producto::setPrice(double prc) {
 void Producto::setStock(int stk) {
   stock = stk;
 }
-
+std::ostream& operator<<(std::ostream& out, const Producto& product) {
+    out << "Título: " << product.title << "\n";
+    out << "Precio: " << product.price << "\n";
+    out << "Stock: " << product.stock << std::endl; // Datos comunes
+    return out;
+    //Comentario, creo que esto se podria aplicar al mostrarInfo de la clase persona siguiendo la misma lógica
+}
 void Producto::displayInfo() const {
-  std::cout << "Titulo: " << title << ", Precio: " << price << ", Stock: " << stock << std::endl;
+  std::cout << *this;
 }
