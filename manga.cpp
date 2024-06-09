@@ -26,3 +26,4 @@ void Manga::displayInfo() const {
   << ", Calificación: " << calificacion << std::endl;
 }
 
+
